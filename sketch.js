@@ -18,7 +18,7 @@ function draw(){
         rect(mouseX,mouseY,80,80,40);
     }
         */
-
+/* this part is not my code */
     function setup(){
         createCanvas(windowWidth,windowHeight);
     }
@@ -27,6 +27,7 @@ function draw(){
         background(20, 300, 400);
         fill('blue');
         stroke('black');
+        /* i change drawing circle to rectamgle*/
         for(var i = 0; i < 10000; i++){
             rect((i*10)%width,(i*10)%height,10,10);
         }

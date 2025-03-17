@@ -1,25 +1,51 @@
 <!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
-        <title>
-          TEXT ADVENTURE
-         
-        </title>
+        <title> Text Adventure </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixed Image Size Example</title>
-    <style>
-        .fixed-size {
-            width: 300px;
-            height: 200px;
+        <script src = "p5.min.js" ></script>
+        <script src = "p5.js"></script>
+        <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #429e56;
+            margin: 0;
+            padding: 20px;
         }
-    </style>
-        <script scr="p5.min.js"></script>
+        #canvas-container {
+            margin: 20px;
+        }
+        #controls-container {
+            margin: 10px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        select, input, button, slider {
+            margin: 5px;
+        }
+        label {
+            margin-bottom: 5px;
+            font-size: 14px;
+            display: block;
+        }
+        </style>
     </head>
     <body>
-        <h1>PROJECT COMING SOON HOLD ON TIGHT!!!</h1>
-        <p>Same as the last one, haven't started on it yet</p>
-        <script src="=web.js"></script>
-        <img src="Aahhh!! How do you stop this thing_!!.jpg" class="img-fluid" alt="..."></body></p>
-      
+        <div id="canvas-container"></div>
+        <div id="controls-container"></div>
+        <script src="TextAdvsketch.js"></script>
     </body>
-    </html>
+
+</html>
+
+
+    
