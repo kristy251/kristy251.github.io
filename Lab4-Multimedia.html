@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <title>
-            Lab 4 - Multimedia
-         
-        </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixed Image Size Example</title>
-    <style>
-        .fixed-size {
-            width: 300px;
-            height: 200px;
-        }
-    </style>
-        <script scr="p5.min.js"></script>
-    </head>
-    <body>
-        <h1>THIRD??? FOURTH LAB!?!?!</h1>
-        <p>JUST HOLD ON TIGHT..A LITTLE LONGER</p>
-        <script src="=web.js"></script>
-        <img src="Epic autism.jpg" class="img-fluid" alt="..."></body></p>
-        
-    </body>
-    </html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>p5.js MediaElement and Image Example</title>
+    <script src="p5.js"></script>
+  </head>
+  <body>
+    <script>
+      let capture; // p5.MediaElement
+      let img;     // p5.Image loaded using createImg
+
+      function setup() {
+        noCanvas();
+
+        // Create webcam capture (p5.MediaElement)
+        capture = createCapture(VIDEO);
+        capture.size(320, 240);
+        capture.position(20, 20);
+
+        // Create an image using createImg (external image)
+        img = createImg('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png', 'React logo');
+        img.size(100, 100);
+        img.position(360, 20);
+      }
+    </script>
+  </body>
+</html>
