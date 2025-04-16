@@ -1,25 +1,59 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <title>
-            Lab 5 - JSON
-         
-        </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixed Image Size Example</title>
-    <style>
-        .fixed-size {
-            width: 300px;
-            height: 200px;
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5.js with localStorage</title>
+    <script src="p5.min.js"></script>
+    <link rel="stylesheet" href="lab5.css">
+    
+</head>
+<body>
+    <div class="controls">
+        <h3>Change Circle Color</h3>
+        <input type="number" id="red" placeholder="Red (0-255)" min="0" max="255">
+        <input type="number" id="green" placeholder="Green (0-255)" min="0" max="255">
+        <input type="number" id="blue" placeholder="Blue (0-255)" min="0" max="255">
+        <button onclick="updateColor()">Update Color</button>
+    </div>
+
+    <script>
+        let r, g, b;
+
+        function setup() {
+            createCanvas(400, 400);
+            // Check if color data exists in localStorage
+            if (localStorage.getItem('circleColor')) {
+                let color = JSON.parse(localStorage.getItem('circleColor'));
+                r = color.r;
+                g = color.g;
+                b = color.b;
+            } else {
+                // Default color if no data exists
+                r = 100;
+                g = 150;
+                b = 200;
+                localStorage.setItem('circleColor', JSON.stringify({ r, g, b }));
+            }
         }
-    </style>
-        <script scr="p5.min.js"></script>
-    </head>
-    <body>
-        <h1>FIFTH LAB!!!</h1>
-        <p>JUST HOLD ON TIGHT...MORE THAN LONGER..JUST KEEP HOLDING</p>
-        <script src="=web.js"></script>
-        <img src="he cannot contain his silliness.jpg" class="img-fluid" alt="..."></body></p>
-        
-    </body>
-    </html>
+
+        function draw() {
+            background(220);
+            fill(r, g, b);
+            ellipse(width / 2, height / 2, 200, 200);
+        }
+
+        function updateColor() {
+            r = parseInt(document.getElementById('red').value) || r;
+            g = parseInt(document.getElementById('green').value) || g;
+            b = parseInt(document.getElementById('blue').value) || b;
+            // Ensure values are within valid range
+            r = constrain(r, 0, 255);
+            g = constrain(g, 0, 255);
+            b = constrain(b, 0, 255);
+            // Save to localStorage
+            localStorage.setItem('circleColor', JSON.stringify({ r, g, b }));
+        }
+    </script>
+</body>
+</html>
