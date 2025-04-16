@@ -1,25 +1,68 @@
 <!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>
-           Final Project
-         
-        </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixed Image Size Example</title>
-    <style>
-        .fixed-size {
-            width: 300px;
-            height: 200px;
-        }
-    </style>
-        <script scr="p5.min.js"></script>
+        <title>Kristy Trinh - Portfolio</title>
+        <link rel="stylesheet" href="final.css">
+        
     </head>
     <body>
-        <h1>FUTURE FINAL PROJECT HOLD ON TIGHT!!!</h1>
-        <p>I haven't started anything yet...</p>
-        <script src="=web.js"></script>
-        <img src="Aahhh!! How do you stop this thing_!!.jpg" class="img-fluid" alt="..."></body></p>
-        
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    
+        <section id="home" class="hero">
+            <div>
+                <h1>Kristy Trinh</h1>
+                <p>Interior Designer</p>
+            </div>
+        </section>
+    
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <p>I'm a </p>
+        </section>
+    
+        <section id="projects" class="projects">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 1">
+                    <h3>Project One</h3>
+                    <p>A Webpage that includes P5.js and a for loop to create a pattern.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 2">
+                    <h3>Project Two</h3>
+                    <p>A portfolio website with a custom CMS using Django.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 3">
+                    <h3>Project Three</h3>
+                    <p>A task management app with real-time collaboration features.</p>
+                </div>
+            </div>
+        </section>
+    
+        <section id="contact" class="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    
+        <footer>
+            <p>&copy; 2025 John Doe. All rights reserved.</p>
+        </footer>
+        <script src="final.css"></script>
     </body>
     </html>
