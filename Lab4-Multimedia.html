@@ -2,43 +2,43 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Webcam Snapshot with Replace</title>
-    <script src="p5.min.js"></script>
+    <title>Webcam Snapshot with Replacement</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
   </head>
   <body>
     <script>
       let capture;
       let snapshotButton;
-      let currentSnapshot; // Will store the current image element
+      let currentSnapshot = null;
 
       function setup() {
-        noCanvas(); // No canvas needed
+        noCanvas(); // No canvas in this sketch
 
-        // Start webcam capture
+        // Start webcam
         capture = createCapture(VIDEO);
         capture.size(320, 240);
         capture.position(20, 20);
 
-        // Create "Take Snapshot" button
+        // Button to take snapshot
         snapshotButton = createButton('📸 Take Snapshot');
         snapshotButton.position(20, 280);
         snapshotButton.mousePressed(takeSnapshot);
       }
 
       function takeSnapshot() {
-        // Remove the old snapshot if it exists
-        if (currentSnapshot) {
-          currentSnapshot.remove();
-        }
-
-        // Capture current webcam frame
+        // Create a hidden canvas to grab webcam frame
         let tempCanvas = createGraphics(320, 240);
         tempCanvas.image(capture, 0, 0, 320, 240);
 
-        // Convert frame to image data
+        // Convert to base64 image
         let dataURL = tempCanvas.elt.toDataURL();
 
-        // Create a new image and keep reference to it
+        // Remove previous snapshot if it exists
+        if (currentSnapshot instanceof p5.Element) {
+          currentSnapshot.remove();
+        }
+
+        // Create new image element and store reference
         currentSnapshot = createImg(dataURL, 'Snapshot');
         currentSnapshot.size(160, 120);
         currentSnapshot.position(360, 20);
