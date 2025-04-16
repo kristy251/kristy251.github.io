@@ -2,35 +2,40 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>p5.js MediaElement and Image Example</title>
-    <script src="p5.js"></script>
+    <title>Webcam Snapshot with Button</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
   </head>
   <body>
     <script>
-      let capture; // p5.MediaElement
-      let img;     // p5.Image loaded using createImg
+      let capture;
+      let snapshotButton;
 
       function setup() {
-        noCanvas();
+        noCanvas(); // We're not using a drawing canvas
 
-        // Create webcam capture (p5.MediaElement)
+        // Start the webcam capture
         capture = createCapture(VIDEO);
         capture.size(320, 240);
         capture.position(20, 20);
 
-        function takeSnapshot() {
-        // Create a temporary canvas to draw the current frame
+        // Create a "Take Snapshot" button
+        snapshotButton = createButton('📸 Take Snapshot');
+        snapshotButton.position(20, 280);
+        snapshotButton.mousePressed(takeSnapshot);
+      }
+
+      function takeSnapshot() {
+        // Create a temporary graphics canvas to capture the current frame
         let tempCanvas = createGraphics(320, 240);
         tempCanvas.image(capture, 0, 0, 320, 240);
 
-        // Convert canvas to base64 image
+        // Convert the captured frame to a base64 image
         let dataURL = tempCanvas.elt.toDataURL();
 
-        // Create an HTML image element from the snapshot
-        let img = createImg(dataURL, 'Snapshot');
+        // Create an image element from the snapshot and display it
+        let img = createImg(dataURL, 'Captured Image');
         img.size(160, 120);
         img.position(360, 20);
-      }
       }
     </script>
   </body>
