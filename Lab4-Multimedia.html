@@ -18,10 +18,19 @@
         capture.size(320, 240);
         capture.position(20, 20);
 
-        // Create an image using createImg (external image)
-        img = createImg('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png', 'React logo');
-        img.size(100, 100);
+        function takeSnapshot() {
+        // Create a temporary canvas to draw the current frame
+        let tempCanvas = createGraphics(320, 240);
+        tempCanvas.image(capture, 0, 0, 320, 240);
+
+        // Convert canvas to base64 image
+        let dataURL = tempCanvas.elt.toDataURL();
+
+        // Create an HTML image element from the snapshot
+        let img = createImg(dataURL, 'Snapshot');
+        img.size(160, 120);
         img.position(360, 20);
+      }
       }
     </script>
   </body>
