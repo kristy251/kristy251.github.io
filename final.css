@@ -65,17 +65,46 @@ section {
     margin: 0 auto;
 }
 
+
+.about {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to ensure side-by-side */
+    align-items: center;
+    width: 100%;
+    min-height: 200px; /* Ensure enough height for alignment */
+}
+
+.about-image {
+    flex: 0 0 200px; /* Fixed width to keep image small and stable */
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    object-fit: cover;
+    margin-right: 2rem; /* Space between image and text */
+}
+
+.about-text {
+    flex: 1; /* Allow text to take remaining space */
+    padding: 1rem;
+}
+
 h2 {
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2.5rem;
     color: #2c3e50;
-}
-
-.about p {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.1rem;
 }
 
 .projects-grid {
@@ -107,6 +136,23 @@ h2 {
     margin-bottom: 0.5rem;
     color: #2c3e50;
 }
+
+.project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Fills the card naturally */
+    width: 100%;
+    height: 100%;
+    position: absolute; /* Position to cover the card */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Ensure link is clickable over content */
+}
+
+.project-link * {
+    pointer-events: none; /* Allow content to be non-clickable, only the link itself triggers */
+}
+
 
 .contact form {
     max-width: 600px;
@@ -160,5 +206,44 @@ footer {
 
     nav ul li {
         margin: 0 0.5rem;
+    }
+    .about {
+        padding: 2rem 1rem;
+    }
+
+    .about-container {
+        flex-direction: column; /* Stack on mobile */
+        text-align: center;
+        min-height: auto; /* Reset height for stacking */
+    }
+
+    .about-image {
+    margin-right: 2rem;
+}
+
+    .about-text {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .about-container {
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .about-image {
+    margin-right: 2rem;
+}
+
+    .about-text {
+        flex: 2 1 700px;
+        order: 2;
     }
 }
